@@ -1,6 +1,6 @@
 # Top-7 Solution for MSLR Task 1 (CSLR Track)
 
-This repository contains our **Top-7 solution** for **MSLR Task 1 (Signer Independent)** in the Continuous Sign Language Recognition (CSLR) track.
+This repository contains our **Top-7 solution** for **MSLR Task 1 (Signer Independent)** at the **2nd Multimodal Sign Language Recognition (MSLR) Workshop & Challenge, CVPR 2026**.
 
 Our approach is built upon a **ConvFormer-based architecture** for pose-based gloss recognition. Starting from a ConvFormer backbone that achieved **13.0652 WER**, we further improved the system by incorporating a **Pretrained Language Model (PLM)** and additional **data augmentation strategies**, achieving **9.41 WER** on the Signer Independent task.
 
@@ -8,12 +8,11 @@ Our approach is built upon a **ConvFormer-based architecture** for pose-based gl
 
 ## Overview
 
-Continuous Sign Language Recognition requires modeling both fine-grained local motion patterns and long-range temporal dependencies from sign videos. Our framework is based on a **ConvFormer-style architecture**, which combines temporal convolutional modeling with Transformer-style sequence learning.
+Continuous Sign Language Recognition requires modeling both **fine-grained local motion patterns** and **long-range temporal dependencies** from sign videos. Our framework addresses this with a **ConvFormer-style architecture** that combines temporal convolution and self-attention for sequence modeling.
 
-To further enhance performance, we extend the ConvFormer backbone with:
+To further improve gloss prediction, we introduce an auxiliary **Permutation Language Modeling (PLM) decoder** during training. Unlike standard left-to-right decoding, the PLM decoder trains the model under multiple random generation orders of the target gloss sequence. This allows the model to learn richer contextual dependencies among gloss tokens while keeping the autoregressive formulation. During inference, only the main **CTC head** is used.
 
-- a **Pretrained Language Model (PLM)** to provide stronger linguistic constraints for gloss sequence prediction,
-- and additional **data augmentation techniques** to improve generalization and robustness.
+In addition, we apply stronger **data augmentation strategies** to improve robustness and generalization.
 
 With these improvements, our final system reduces the WER from **13.0652** to **9.41**.
 
@@ -43,8 +42,8 @@ Follow these steps to set up the environment and get started:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/gufranSabri/Pose86K-CSLR-Isharah.git
-   cd Pose86K-CSLR-Isharah
+   git clone https://github.com/hanguyenai/mslr-si-convformer-plm.git
+   cd mslr-si-convformer-plm
    ```
 
 2. **Download the dataset** from [TASK 1](https://www.kaggle.com/datasets/gufransabri3/mslr-task1); [TASK 2](https://www.kaggle.com/datasets/gufransabri3/mslr-task2). Place the dataset in the `./data` folder.
