@@ -101,7 +101,10 @@ python main.py --work_dir ./work_dir/base_US --model base --mode US
 
 Once the environment is set up, you can train or test the model on the available tasks. Follow the instructions in the individual task directories for specific commands.
 
+## Acknowledgment
+
+Our implementation is developed based on the open-source repository [MSLR-Pose86K-CSLR-Isharah](https://github.com/rezwanh001/MSLR-Pose86K-CSLR-Isharah).
+
 ## License
 
 This project is licensed under the MIT License.
-# mslr-si-convformer-plm
